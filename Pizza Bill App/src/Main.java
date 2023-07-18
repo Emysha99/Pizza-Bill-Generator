@@ -24,6 +24,8 @@ public class Main {
             } else if (choice == 2) {
                 DeluxPizza dp =new DeluxPizza();
                 dp.setBasePizzaPrice();
+                dp.addExtraCheese();
+                dp.addExtraTopping();
                 dp.takeAway();
                 dp.getBill();
 

@@ -3,18 +3,18 @@ import java.util.Scanner;
 
 public class Pizza {
     Scanner sn=new Scanner(System.in);
-    private int basePizzaPrice;
-    private int price;//total price
-    private int extraCheesePrice=100;
-    private int extraToppingPrice=150;
-    private int backPackPrice=20;
-    private char isVeg;
-    private char isExtraCheeseAdded;
-    private boolean cheeseAdded=false;
-    private char isExtraToppingAdded;
-    private boolean toppingAdded=false;
-    private char isTakeAway;
-    private boolean takeAway=false;
+    int basePizzaPrice;
+    int price;//total price
+    int extraCheesePrice=100;
+    int extraToppingPrice=150;
+    int backPackPrice=20;
+    char isVeg;
+    char isExtraCheeseAdded;
+    boolean cheeseAdded=false;
+    char isExtraToppingAdded;
+    boolean toppingAdded=false;
+    char isTakeAway;
+    boolean takeAway=false;
     public void setBasePizzaPrice() {
         do {
             System.out.print("Do you want a veg pizza?(y/n) : ");
