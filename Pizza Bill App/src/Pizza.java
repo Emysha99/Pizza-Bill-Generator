@@ -3,20 +3,18 @@ import java.util.Scanner;
 
 public class Pizza {
     Scanner sn=new Scanner(System.in);
-    private char isVeg;
-    private char isExtraCheeseAdded;
-    private boolean cheeseAdded=false;
-
-
-    private int price;
+    private int basePizzaPrice;
+    private int price;//total price
     private int extraCheesePrice=100;
     private int extraToppingPrice=150;
     private int backPackPrice=20;
-    private int basePizzaPrice;
-
-    private boolean isExtraToppingAdded;
-    private boolean isTakeAway;
-
+    private char isVeg;
+    private char isExtraCheeseAdded;
+    private boolean cheeseAdded=false;
+    private char isExtraToppingAdded;
+    private boolean toppingAdded=false;
+    private char isTakeAway;
+    private boolean takeAway=false;
     public void setBasePizzaPrice() {
         do {
             System.out.print("Do you want a veg pizza?(y/n) : ");
@@ -37,44 +35,62 @@ public class Pizza {
         do {
             System.out.print("Do you want to add cheese?(y/n) : ");
             isExtraCheeseAdded = sn.nextLine().charAt(0);
-
-            if (isVeg == 'y' || isVeg == 'Y') {
+            if (isExtraCheeseAdded == 'y' || isExtraCheeseAdded == 'Y') {
                 this.price+=extraCheesePrice;
                 cheeseAdded=true;
-            } else if (isVeg == 'n' || isVeg == 'N') {
+            } else if (isExtraCheeseAdded == 'n' || isExtraCheeseAdded == 'N') {
                 break;
             } else {
                 System.out.println("Invalid input.Try again.");
             }
-        }while(isVeg!='y'&& isVeg!='Y'&& isVeg!='n'&& isVeg!='N');
+        }while(isExtraCheeseAdded!='y'&& isExtraCheeseAdded!='Y'&& isExtraCheeseAdded!='n'&& isExtraCheeseAdded!='N');
+    }
+
+    public void addExtraTopping() {
+        do {
+            System.out.print("Do you want to add toppings?(y/n) : ");
+            isExtraToppingAdded = sn.nextLine().charAt(0);
+            if (isExtraToppingAdded == 'y' || isExtraToppingAdded == 'Y') {
+                this.price+=extraToppingPrice;
+                toppingAdded=true;
+            } else if (isExtraToppingAdded == 'n' || isExtraToppingAdded == 'N') {
+                break;
+            } else {
+                System.out.println("Invalid input.Try again.");
+            }
+        }while(isExtraToppingAdded!='y'&& isExtraToppingAdded!='Y'&& isExtraToppingAdded!='n'&& isExtraToppingAdded!='N');
+    }
+
+    public void takeAway() {
+        do {
+            System.out.print("Are you planning to take away?(y/n) : ");
+            isTakeAway = sn.nextLine().charAt(0);
+            if (isTakeAway == 'y' || isTakeAway == 'Y') {
+                this.price+=backPackPrice;
+                takeAway=true;
+            } else if (isTakeAway == 'n' || isTakeAway == 'N') {
+                break;
+            } else {
+                System.out.println("Invalid input.Try again.");
+            }
+        }while(isTakeAway!='y'&& isTakeAway!='Y'&& isTakeAway!='n'&& isTakeAway!='N');
     }
 
 
-//    public void addExtraCheese(){
-//        isExtraCheeseAdded=true;
-//        this.price += extraCheesePrice;
-//
-//    }
-//    public void addExtraToppings(){
-//        isExtraToppingAdded=true;
-//        this.price+=extraToppingPrice;
-//    }
-//    public void takeAway(){
-//        isTakeAway=true;
-//        this.price+=backPackPrice;
-//    }
     public void getBill(){
         String bill="";
+        System.out.println("\nThis is your bill.Enjoy your order");
+        System.out.println("------------------------------------------");
         System.out.println("Pizza:"+this.basePizzaPrice);
         if(cheeseAdded){
             bill+="Extra cheese added:"+extraCheesePrice+"\n";
         }
-//        if(isExtraToppingAdded){
-//            bill+="Extra topping added:"+extraToppingPrice+"\n";
-//        }
-//        if(isTakeAway){
-//            bill+="Take away:"+backPackPrice+"\n";
-//        }
+        if(toppingAdded){
+            bill+="Extra topping added:"+extraToppingPrice+"\n";
+        }
+        if(takeAway){
+            bill+="Take away:"+backPackPrice+"\n";
+        }
         bill+="Bill:"+this.price+"\n";
         System.out.println(bill);
     }

@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sn =new Scanner(System.in);
         int choice;
-        char isVeg;
+
 
         System.out.println("-----------Pizza Palace--------------");
         System.out.println("Hey,Happy customer ! Let's complete your order.");
@@ -18,25 +18,27 @@ public class Main {
                 Pizza basePizza = new Pizza();
                 basePizza.setBasePizzaPrice();
                 basePizza.addExtraCheese();
+                basePizza.addExtraTopping();
+                basePizza.takeAway();
                 basePizza.getBill();
             } else if (choice == 2) {
-               // DeluxPizza dp =new DeluxPizza(false);
+                DeluxPizza dp =new DeluxPizza();
+                dp.setBasePizzaPrice();
+                dp.takeAway();
+                dp.getBill();
 
             } else {
                 System.out.println("Invalid choice.Try again.");
             }
         }while(choice!=1 && choice!=2);
 
-        System.out.println("*****");
 
 
 
 
 
-//        basePizza.addExtraToppings();
-//        basePizza.addExtraCheese();
-//        basePizza.takeAway();
-        //basePizza.getBill();
+
+
 
 
 
